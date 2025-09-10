@@ -1,0 +1,170 @@
+/* ===== RESET GERAL ===== */
+* {
+  margin: 0; /* Remove espaçamentos padrão */
+  padding: 0; /* Remove preenchimento padrão */
+  box-sizing: border-box; /* Inclui bordas no cálculo do tamanho */
+  font-family: "Segoe UI", Roboto, Arial, sans-serif; /* Fonte padrão */
+}
+
+/* ===== VARIÁVEIS DE COR (Modo Claro) ===== */
+:root {
+  --bg-gradient: linear-gradient(135deg, #6a11cb, #2575fc); /* Fundo com gradiente */
+  --container-bg: #fff; /* Fundo do container */
+  --text-color: #333; /* Cor do texto */
+  --title-color: #444; /* Cor do título */
+  --input-bg: #fff; /* Fundo do input */
+  --input-border: #ddd; /* Cor da borda do input */
+  --li-bg: #f7f7f7; /* Fundo dos itens da lista */
+  --li-hover: #eef3ff; /* Fundo quando passa o mouse */
+  --btn-main-bg: #2575fc; /* Cor do botão principal */
+  --btn-main-hover: #1a5ed8; /* Hover do botão principal */
+  --btn-apagar-bg: #ff4d4d; /* Botão apagar */
+  --btn-apagar-hover: #e60000; /* Hover botão apagar */
+}
+
+/* ===== VARIÁVEIS DE COR (Modo Escuro) ===== */
+body.dark {
+  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --container-bg: #1e1e1e;
+  --text-color: #eee;
+  --title-color: #fff;
+  --input-bg: #2c2c2c;
+  --input-border: #444;
+  --li-bg: #2a2a2a;
+  --li-hover: #3a3a3a;
+  --btn-main-bg: #3d85c6;
+  --btn-main-hover: #2a5d91;
+  --btn-apagar-bg: #d9534f;
+  --btn-apagar-hover: #c9302c;
+}
+
+/* ===== ESTILOS GERAIS ===== */
+body {
+  background: var(--bg-gradient); /* Aplica o gradiente */
+  min-height: 100vh; /* Ocupar a tela toda */
+  display: flex;
+  justify-content: center; /* Centraliza na horizontal */
+  align-items: center; /* Centraliza na vertical */
+  color: var(--text-color);
+  transition: 0.3s; /* Anima a troca de tema */
+}
+
+/* Container central */
+.container {
+  background: var(--container-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+/* Título */
+.container h1 {
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: var(--title-color);
+}
+
+/* Botão de troca de tema */
+.btn-tema {
+  background: transparent;
+  border: 2px solid var(--btn-main-bg);
+  color: var(--btn-main-bg);
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  transition: 0.3s;
+}
+
+.btn-tema:hover {
+  background: var(--btn-main-bg);
+  color: #fff;
+}
+
+/* Input + Botão lado a lado */
+.container p {
+  display: flex;
+  gap: 10px; /* Espaço entre eles */
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Input */
+.input-tarefa {
+  flex: 1;
+  padding: 10px 15px;
+  border: 2px solid var(--input-border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--input-bg);
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+.input-tarefa:focus {
+  border-color: var(--btn-main-bg);
+  box-shadow: 0 0 6px rgba(37, 117, 252, 0.4);
+}
+
+/* Botão principal */
+.btn-tarefa {
+  background: var(--btn-main-bg);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-tarefa:hover {
+  background: var(--btn-main-hover);
+  transform: scale(1.05); /* Efeito de zoom */
+}
+
+/* Lista de tarefas */
+.tarefas {
+  list-style: none; /* Remove marcadores */
+  text-align: left;
+}
+
+/* Item da lista */
+.tarefas li {
+  background: var(--li-bg);
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+  color: var(--text-color);
+}
+
+.tarefas li:hover {
+  background: var(--li-hover);
+  transform: scale(1.02);
+}
+
+/* Botão de apagar */
+.tarefas .apagar {
+  background: var(--btn-apagar-bg);
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.tarefas .apagar:hover {
+  background: var(--btn-apagar-hover);
+  transform: scale(1.1);
+}

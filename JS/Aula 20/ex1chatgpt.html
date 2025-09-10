@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Alunos</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { margin-bottom: 10px; }
+    .resultado p { margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+  <h2>Cadastro de Alunos</h2>
+  <form class="form">
+    <p>Nome: <input type="text" class="nome" required></p>
+    <p>Idade: <input type="number" class="idade" required></p>
+    <p>Nota: <input type="number" step="0.1" class="nota" required></p>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <h3>Alunos Cadastrados:</h3>
+  <div class="resultado"></div>
+
+  <h3>Média das Notas:</h3>
+  <div class="media"></div>
+
+  <script>
+    function cadastroAlunos() { // função no qual vai pegar todos os dados q escreveram e poder reutilizar
+      const form = document.querySelector('.form');
+      const resultado = document.querySelector('.resultado');
+      const mediaBox = document.querySelector('.media'); 
+      const alunos = []; // objeto no qual vai pegar todos os dados do alunos
+
+      form.addEventListener('submit', function(evento) {  
+        evento.preventDefault();
+
+
+        //.value puxa so o valor q escreveu no nome
+        const nome = form.querySelector('.nome').value; 
+
+        // ele trata o tipo de dado number antes de puxar o dado
+        const idade = Number(form.querySelector('.idade').value);
+        
+        
+        // ele trata o tipo de dado number antes de puxar o dado
+        const nota = Number(form.querySelector('.nota').value);
+
+
+        // Adiciona o aluno ao array qual o nome é (alunos) 
+        alunos.push({ nome, idade, nota });
+
+        // Atualiza a lista de alunos na tela no qual ta la no html resultado 
+        resultado.innerHTML += `<p>${nome}, ${idade} anos - Nota: ${nota}</p>`;
+
+        // Calcula a média das notas, ele criou uma 
+        //.reduce(...) é um método que percorre o array e acumula valores.
+        const totalNotas = alunos.reduce((soma, aluno) => soma + aluno.nota, 0);
+        const media = (totalNotas / alunos.length).toFixed(2);
+
+        mediaBox.innerHTML = `<strong>${media}</strong>`;
+        
+        // (Opcional) Limpa os campos
+        form.reset();
+      });
+    }
+
+    cadastroAlunos();
+  </script>
+
+</body>
+</html>

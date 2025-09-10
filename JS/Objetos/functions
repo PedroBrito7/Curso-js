@@ -1,0 +1,50 @@
+// -----------------------------
+// FACTORY FUNCTION
+// -----------------------------
+// Uma Factory Function é basicamente uma função que cria e retorna objetos.
+// Não usa "new", apenas retorna um objeto literal.
+
+function criarPessoa(nome, sobrenome) {
+  return {
+    nome,           // atalho para "nome: nome"
+    sobrenome,      // atalho para "sobrenome: sobrenome"
+    
+    // método dentro do objeto
+    falar() {
+      console.log(`Meu nome é ${this.nome} ${this.sobrenome}`);
+    }
+  };
+}
+
+// Criando objetos com a factory function
+const pessoa1 = criarPessoa("Pedro", "Brito");
+const pessoa2 = criarPessoa("Ana", "Silva");
+
+pessoa1.falar(); // Saída: Meu nome é Pedro Brito
+pessoa2.falar(); // Saída: Meu nome é Ana Silva
+
+
+// -----------------------------
+// CONSTRUCTOR FUNCTION
+// -----------------------------
+// Uma Constructor Function funciona como um "molde" de objetos.
+// A convenção é começar o nome da função com letra maiúscula.
+// Usamos a palavra-chave "new" para criar instâncias.
+
+function Pessoa(nome, sobrenome) {
+  // Propriedades do objeto que será criado
+  this.nome = nome;
+  this.sobrenome = sobrenome;
+
+  // Método do objeto
+  this.falar = function() {
+    console.log(`Meu nome é ${this.nome} ${this.sobrenome}`);
+  };
+}
+
+// Criando objetos com a constructor function
+const pessoa3 = new Pessoa("João", "Oliveira");
+const pessoa4 = new Pessoa("Maria", "Santos");
+
+pessoa3.falar(); // Saída: Meu nome é João Oliveira
+pessoa4.falar(); // Saída: Meu nome é Maria Santos
